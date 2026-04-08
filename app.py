@@ -8,8 +8,8 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from campaign_roi_crewai import run_pipeline as run_campaign_pipeline
-from model_prediction import run_pipeline as run_model_pipeline
+from src.campaign_roi_crewai import run_pipeline as run_campaign_pipeline
+from src.model_prediction import run_pipeline as run_model_pipeline
 
 st.set_page_config(
     page_title="Campaign Intelligence Demo",
