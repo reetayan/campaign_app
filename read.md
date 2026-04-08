@@ -1,3 +1,29 @@
+# 🚀 Campaign Optimization System
+
+AI-driven campaign optimization system combining **LightGBM predictions, causal modeling, and LLM-powered recommendations (CrewAI)** with an interactive **Streamlit UI** for ROI-based customer targeting and marketing decisioning.
+
+---
+
+## 🔥 Key Features
+
+- 📊 ROI-driven campaign optimization (not just prediction)
+- 🤖 LightGBM-based customer behavior modeling
+- 🎯 Causal modeling for uplift & spend estimation
+- 🧠 LLM-powered recommendation engine
+- 🤝 Agentic decision system (CrewAI)
+- 📈 End-to-end pipeline from data → decision → business output
+- ⚙️ Production-oriented with MLflow monitoring
+
+---
+
+## 🧠 System Architecture Overview
+
+This system is designed as a **multi-layered intelligent pipeline** that transforms raw customer data into actionable marketing decisions.
+
+---
+
+## 📊 Architecture Diagram
+
 ```mermaid
 flowchart TB
 
@@ -46,4 +72,3 @@ flowchart TB
     C1 --> D1
     C3 --> D2
     C2 --> D3
-``` 
