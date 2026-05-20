@@ -18,11 +18,41 @@ from pulp import LpBinary, LpMaximize, LpProblem, LpVariable, lpSum
 import os
 from dotenv import load_dotenv
 
+import streamlit as st
+
+
+
+load_dotenv()
+
+def get_openai_api_key():
+    # First try environment variable
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    # Then try Streamlit secrets only if available
+    try:
+        api_key = api_key or st.secrets["OPENAI_API_KEY"]
+    except Exception:
+        pass
+
+    return api_key
+
+OPENAI_API_KEY = get_openai_api_key()
+
+if OPENAI_API_KEY:
+    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+else:
+    st.warning("OPENAI_API_KEY not found. CrewAI text output will be skipped.")
+
+#OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+
 try:
     from crewai import Agent, Crew, Process, Task
     CREWAI_AVAILABLE = True
 except Exception:
     CREWAI_AVAILABLE = False
+    
+print("CREWAI AVAILABLE:", CREWAI_AVAILABLE)
+print("OPENAI KEY FOUND:", bool(OPENAI_API_KEY))
 
 pd.set_option("display.max_columns", 200)
 pd.set_option("display.float_format", lambda x: f"{x:,.4f}")
